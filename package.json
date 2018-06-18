@@ -1,0 +1,25 @@
+{
+  "name": "generic-reviews-service",
+  "version": "1.0.0",
+  "description": "Project 2",
+  "main": "index.ts",
+  "scripts": {
+    "start": "nodemon --exec ts-node index.ts",
+    "deploy": "ts-node index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anything's Fine",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.248.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "ts-node": "^6.1.0",
+    "typescript": "^2.9.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.11.1",
+    "@types/express-session": "^1.15.9"
+  }
+}

@@ -10,8 +10,12 @@ aws.config.update(awsConfig);
 
 const docClient = new aws.DynamoDB.DocumentClient();
 
-function getAllCategories(): Promise<any> {
+/*******************************************************************
+ * Getting all categories
+ *******************************************************************/
+export function getAllCategories(): Promise<any> {
   return docClient.scan({
     TableName: 'category',
   }).promise();
 }
+

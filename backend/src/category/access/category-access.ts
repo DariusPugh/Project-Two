@@ -15,3 +15,23 @@ function getAllCategories(): Promise<any> {
     TableName: 'category',
   }).promise();
 }
+
+function addCategory(category:any): Promise<any> {
+  return docClient.put({
+    TableName: 'category',
+    Item: category,
+  }).promise();
+}
+
+function deleteCategory(category:String): Promise<any> {
+  return docClient.delete({
+    TableName: 'category',
+    Key: {
+      "category": category,
+    },
+    ConditionExpression: "info.count = :value",
+    ExpressionAttributeValues: {
+        ":value": 0
+    }
+  }).promise();
+}

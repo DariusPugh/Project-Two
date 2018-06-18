@@ -15,34 +15,3 @@ function getAllCategories(): Promise<any> {
     TableName: 'category',
   }).promise();
 }
-
-function getReviewsByID(reviewID): Promise<any>{
-  return docClient.query({
-    TableName: 'reviews',
-    KeyConditionExpression: '#ri = :reviewID',
-    ExpressionAttributeNames: { // for aliasing field names
-      '#ri': 'reviewID'
-    },
-    ExpressionAttributeValues: { // for aliasing actual values
-      ':reviewID': reviewID
-    },
-    // ReturnConsumedCapacity: 'TOTAL' // not needed but if you want to see this info it is there
-
-  }).promise();
-}
-
-function getReviewsByUsername(username){
-  return docClient.query({
-    TableName: 'reviews',
-    IndexName: 'username-index',
-    KeyConditionExpression: '#un = :username',
-    ExpressionAttributeNames: { // for aliasing field names
-      '#un': 'username'
-    },
-    ExpressionAttributeValues: { // for aliasing actual values
-      ':username': username
-    },
-    // ReturnConsumedCapacity: 'TOTAL' // not needed but if you want to see this info it is there
-
-  }).promise();
-}

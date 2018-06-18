@@ -91,7 +91,7 @@ function deleteItem(category:String, title:String): Promise<any> {
             "category": category,
             "title": title,
         },
-        ConditionExpression: "info.reviewed = :value",
+        ConditionExpression: "info.count = :value",
         ExpressionAttributeValues: {
             ":value": 0
         }
